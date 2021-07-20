@@ -1,3 +1,21 @@
+########################################################################
+###
+### terraform-hetzner-webserver script
+### 2021 (c) Oleg Vlasenko, MIT License
+###
+########################################################################
+########################################################################
+### terraform requires declaration of required providers in each module
+###
+terraform {
+  required_providers {
+    hcloud = {
+       source  = "hetznercloud/hcloud" 
+    }
+  }
+}
+########################################################################
+
 data "hcloud_network" "tpa_network" {
   name = var.network_name
 }
