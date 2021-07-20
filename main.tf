@@ -1,9 +1,3 @@
-terraform {
-   required_providers {
-     hcloud     = { source = "hetznercloud/hcloud" }
-   }
-}
-
 data "hcloud_network" "tpa_network" {
   name = var.network_name
 }
