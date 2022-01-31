@@ -16,14 +16,14 @@ terraform {
 }
 ########################################################################
 
-data "hcloud_network" "tpa_network" {
+data "hcloud_network" "tpa" {
   name = var.network_name
 }
 
 resource "hcloud_server_network" "server" {
   server_id  = var.server_id
-  network_id = var.subnet_id != "" ? 0 : data.hcloud_network.tpa_network.id
+  network_id = var.subnet_id != "" ? 0 : data.hcloud_network.tpa.id
   ip         = var.ip
-  subnet_id  = var.subnet_id == "" ? "" : "${data.hcloud_network.tpa_network.id}-${var.subnet_id}"
+  subnet_id  = var.subnet_id == "" ? "" : "${data.hcloud_network.tpa.id}-${var.subnet_id}"
 }
 
