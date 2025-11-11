@@ -22,8 +22,8 @@ data "hcloud_network" "tpa" {
 
 resource "hcloud_server_network" "server" {
   server_id  = var.server_id
-  network_id = var.subnet_id != "" ? 0 : data.hcloud_network.tpa.id
   ip         = var.ip
-  subnet_id  = var.subnet_id == "" ? "" : "${data.hcloud_network.tpa.id}-${var.subnet_id}"
+  network_id = var.subnet_id == "" ? data.hcloud_network.tpa.id : null
+  subnet_id  = var.subnet_id == "" ? null : "${data.hcloud_network.tpa.id}-${var.subnet_id}"
 }
 
