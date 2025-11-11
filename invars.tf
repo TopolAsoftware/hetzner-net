@@ -9,9 +9,9 @@ variable "network_name" {
 
 variable "subnet_id" {
    description = "IP subnet for the server (optional)"
-   default = null
+   default = ""
 }
 variable "ip" {
    description = "IP address for the server (optional)"
-   default = null
+   default = ""
 }
